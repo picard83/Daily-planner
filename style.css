@@ -1,0 +1,55 @@
+body {
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+.header {
+  background-color: rgb(250, 225, 230);
+  text-align: center;
+  font-family: fantasy;
+}
+
+.summaryMssg {
+  font-weight: bold;
+  font-size: 20px;
+  text-align: center;
+}
+
+.container {
+  align-items: normal;
+}
+
+.todays-date {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.hour {
+  background-color: rgb(184, 219, 231);
+  margin: 5px;
+  padding: 15px;
+  border: 5px solid rgb(97, 95, 95);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.save-btn {
+  margin-left: 300px;
+  padding: 4px;
+}
+
+.text-input {
+  background-color: rgb(222, 237, 243);
+  margin-left: 55px;
+}
+
+.input-value {
+  background-color: rgb(0, 89, 255);
+  width: 200px;
+  display: inline;
+  color: white;
+  margin-left: 30px;
+}
