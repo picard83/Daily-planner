@@ -47,9 +47,11 @@ body {
 }
 
 .input-value {
-  background-color: rgb(0, 89, 255);
+  background-color: rgb(178, 191, 216);
   width: 200px;
   display: inline;
-  color: white;
+  color: black;
   margin-left: 30px;
+  font-size: 19px;
+  font-family: sans-serif;
 }
