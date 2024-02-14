@@ -55,3 +55,13 @@ body {
   font-size: 19px;
   font-family: sans-serif;
 }
+
+.future {
+  background-color: green;
+}
+.present {
+  background-color: rgb(95, 36, 195);
+}
+.past {
+  background-color: red;
+}

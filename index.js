@@ -1,6 +1,6 @@
 const todaysDate = document.querySelector(".todays-date");
 const container = document.querySelector(".container");
-const hourBLocks = document.querySelectorAll(".hour");
+const hourBlocks = document.querySelectorAll(".hour");
 const inputText = document.querySelector(".text-input");
 const saveBtns = document.querySelectorAll(".save-btn");
 
@@ -14,20 +14,31 @@ for (let i = 0; i < saveBtns.length; i++) {
   });
 }
 
+let currentHour = null;
 function loadTask() {
-  for (let i = 0; i < hourBLocks.length; i++) {
-    const block = hourBLocks[i];
+  updateDate();
+
+  console.log("loadTask() is called");
+  for (let i = 0; i < hourBlocks.length; i++) {
+    const block = hourBlocks[i];
+    const blockHour = parseInt(block.className.split(" ")[1].split("-")[1]);
 
     const text = localStorage.getItem(block.id);
 
     block.firstElementChild.nextElementSibling.innerText = text;
+    if (blockHour < currentHour) {
+      block.classList.add("past");
+    } else if (blockHour >= currentHour) {
+      block.classList.add("future");
+    } else if (blockHour === currentHour) {
+      block.classList.add("present");
+    }
   }
 }
 loadTask();
 
 function updateDate() {
   let currentDate = new Date();
-
   let formattedDateTime = currentDate.toLocaleString("en-US", {
     weekday: "long",
     year: "numeric",
@@ -38,9 +49,14 @@ function updateDate() {
     second: "numeric",
     timeZoneName: "short",
   });
+  // let timeString = formattedDateTime.split("at")[1].trim();
+  // let timeParts = timeString.split(":");
+  // let hour = timeParts[0].trim();
+  // console.log(hour);
+  currentHour = currentDate.getHours();
 
   todaysDate.innerText = formattedDateTime;
 }
-updateDate();
 
-setInterval(updateDate);
+setInterval(updateDate, 1000);
+// loadTask();
